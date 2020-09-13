@@ -31,10 +31,10 @@ def process_results(sources_list):
         name = sources_items.get('name')
         description = sources_items.get('description')
         category = sources_items.get('category')
-        language = sources_items.get('language')
+        url = sources_items.get('url')
         
         if description:
-            sources_object = News_source(id, name, description, category, language)
+            sources_object = News_source(id, name, description, category, url)
             sources_result.append(sources_object)
             
     return sources_result

@@ -1,10 +1,10 @@
 class News_source:
-    def __init__(self,id, name, description, category, language):
+    def __init__(self,id, name, description, category, url):
         self.id = id
         self.name = name
         self.description = description
         self.category = category
-        self.language = language
+        self.url = url
     
     
 class News_article:
