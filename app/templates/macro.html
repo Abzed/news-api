@@ -1,0 +1,13 @@
+{% macro dispaySources(sources) %}
+
+{% for source in sources %}
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
+            <li class="text-center">
+                    {{ source.name|truncate(10)}}</a>
+            </li>
+        </div>
+
+    {% endfor %}
+
+
+{% endmacro %}
