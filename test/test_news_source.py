@@ -1,0 +1,12 @@
+import unittest
+from app.models import News_source
+
+class NewSourceTest(unittest.TestCase):
+    def setUp(self):
+        self.new_news_source = News_source('abz-news', 'ABZ News', 'Abz news for Moringa School', 'general', 'en')
+        
+    def test_instance(self):
+        self.assertEqual(isinstance(self.new_news_source))
+        
+if __name__ == '__main__':
+    unittest.main()
