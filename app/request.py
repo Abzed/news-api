@@ -10,36 +10,33 @@ def configure_request(app):
     api_key = app.config['NEWS_API_KEY']
     base_url = app.config['NEWS_BASE_URL']
     
-def get_news_source(category):
-    get_news_source_url = base_url.format(category,api_key)
+def get_sources(category):
+    get_sources_url = base_url.format(category,api_key)
     
-    with urllib.request.urlopen(get_news_source_url) as url:
-        get_news_source_data = url.read()
-        get_news_source_response = json.loads(get_news_source_data)
+    with urllib.request.urlopen(get_sources_url) as url:
+        get_sources_data = url.read()
+        get_sources_response = json.loads(get_sources_data)
         
-        news_sources_result = None
+        sources_result = None
         
-        if get_news_source_response['sources']:
-            news_source_list = get_news_source_response['sources']
-            news_source_result = process_results(news_source_list)
-            
-    return news_sources_result
+        if get_sources_response['sources']:
+            sources_result_list = get_sources_response['sources']
+            sources_result = process_results(sources_result_list)
+    return sources_result
 
 def process_results(sources_list):
-    news_source_result = []
-    for source_items in sources_list:
-        id = source_items.get('id')
-        name = source_items.get('name')
-        description = source_items.get('description')
-        category = source_items.get('category')
-        language = source_items.get('language')
+    sources_result = []
+    for sources_items in sources_list:
+        id = sources_items.get('id')
+        name = sources_items.get('name')
+        description = sources_items.get('description')
+        category = sources_items.get('category')
+        language = sources_items.get('language')
         
-        if language == 'en':
-            news_source_object = News_source(id, name, description, category, language)
-            news_source_result.append(news_source_object)
+        if description:
+            sources_object = News_source(id, name, description, category, language)
+            sources_result.append(sources_object)
             
-    return news_source_result
-         
-    
-
+    return sources_result
+        
     

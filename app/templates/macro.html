@@ -1,13 +1,19 @@
-{% macro dispaySources(sources) %}
+{% macro displaySourcesList(sources_list) %}
 
-{% for source in sources %}
-        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
-            <li class="text-center">
-                    {{ source.name|truncate(10)}}</a>
-            </li>
-        </div>
+{% for sources in sources_list %}
+   
+<div class='container-fluid'>
 
-    {% endfor %}
+<div class="jumbotron">
+  <h1 class="display-4">{{sources.name}}</h1>
+  <p class="lead">{{sources.description}}</p>
+  <hr class="my-4">
+  <p>Category : {{sources.category}}</p>
+  <a class="btn btn-primary btn-lg" href="{{sources.url}}" role="button">View Source</a>
+</div>
 
+</div>
+
+ {% endfor %}
 
 {% endmacro %}
