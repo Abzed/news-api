@@ -12,3 +12,8 @@ def index():
     business_news = get_sources('business')
     science_news = get_sources('science')
     return render_template('index.html', general=general_news,sports=sports_news,technology=technology_news,entertainment=entertainment_news,business=business_news,science=science_news)
+
+@main.route('/articles')
+def news_articles():
+    health_news = get_sources('health')
+    return render_template('articles.html', health=health_news)
