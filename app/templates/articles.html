@@ -1,7 +1,11 @@
 {% extends 'base.html'%}
+{% import 'macro.html' as macro %}
 
 {% block content %}
 
-<h1>Yes!</h1>
+<h1>Yes..!</h1>
+
+{{ macro.displayArticleList(cnn) }}
+{{ macro.displayArticleList(argaam) }}
 
 {% endblock %}
