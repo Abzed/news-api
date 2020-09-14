@@ -59,7 +59,7 @@ def get_article(sources):
 def process_articles(article_list):
     article_results = []
     for article_items in article_list:
-        source_name = article_items.get('source.name')
+        source_name = article_items.get('source')
         author = article_items.get('author')
         title = article_items.get('title')
         description = article_items.get('description')

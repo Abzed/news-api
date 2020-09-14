@@ -8,12 +8,12 @@ class News_source:
     
     
 class News_article:
-    def __init__(self,source_name,author, title, description, url_link, url_image, date_publushed,content):
+    def __init__(self,source_name,author, title, description, url_link, url_image, date_published,content):
         self.source_name = source_name
         self.author = author
         self.title = title
         self.description = description
         self.url_link = url_link
         self.url_image = url_image
-        self.date_publushed = date_publushed
+        self.date_published = date_published
         self.content = content

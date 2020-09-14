@@ -1,0 +1,5 @@
+#articles{
+    display: flex;
+    color: black;
+    flex-direction: row;
+}

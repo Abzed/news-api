@@ -22,19 +22,28 @@
 
 {% for articles in article_list %}
 
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="{{ articles.url_image }}" class="card-img" alt="{{articles.source_name}}">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">{{ articles.title }}</h5>
-        <p class="card-text">{{ articles.content }}</p>
-        <p class="card-text"><small class="text-muted">{{ articles.date_published}}</small></p>
-      </div>
-    </div>
+<div class='container-fluid'>
+
+<div class="row">
+  <div class='col-md-9 col-sm-10 col-lg-10'>
+
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title" style='text-decoration:underline;'>{{ articles.title }}</h2>
+    <h4 class="card-text">{{ articles.description }}</h4>
+    <h4 class="card-text">{{ articles.source_name.name }}</h4>
+    <h5 class="card-text"><small class="text-muted">Published On : {{ articles.date_published }}</small></h5>
   </div>
+  <img src="{{ articles.url_image }}" class="card-img-bottom" alt="articles image">
+</div>
+
+  </div>
+</div>
+
+<br>
+<hr>
+<br>
+
 </div>
 
 {% endfor %}
