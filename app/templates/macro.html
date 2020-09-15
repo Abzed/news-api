@@ -10,6 +10,7 @@
   <hr class="my-4">
   <p>Category : <span style='text-transform:capitalize;'>{{sources.category}}</span> </p>
   <a class="btn btn-primary btn-lg" href="{{ sources.url }}" role="button">View News Source</a>
+  <a class="btn btn-primary btn-lg" href="/articles/{{ sources.id }}" role="button">View News Source B</a>
 </div>
 
 </div>
@@ -33,6 +34,7 @@
     <h4 class="card-text">{{ articles.description }}</h4>
     <h4 class="card-text text-muted">News Source : {{ articles.source_name.name }}</h4>
     <h5 class="card-text"><small class="text-muted">Published On : {{ articles.date_published }}</small></h5>
+    <h5 class="card-text"><small class="text-muted">Author : {{ articles.author }}</small></h5>
      <a class="btn btn-outline-success" href="{{ articles.url_link }}" target='_blank' role="button">View Full Story</a>
   </div>
   <img src="{{ articles.url_image }}" class="card-img-bottom" alt="articles image">

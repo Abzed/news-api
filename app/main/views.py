@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for
 from . import main
-from ..request import get_sources, get_article,get_source_article
+from ..request import get_sources, get_article,get_source_article,search_news
 from ..models import News_source,News_article
 
 @main.route('/')
@@ -11,15 +11,25 @@ def index():
     entertainment_news = get_sources('entertainment')
     business_news = get_sources('business')
     science_news = get_sources('science')
+    
     return render_template('index.html', general=general_news,sports=sports_news,technology=technology_news,entertainment=entertainment_news,business=business_news,science=science_news)
 
 @main.route('/articles')
 def news_articles():
     cnn = get_article('cnn')
-    return render_template('articles.html',cnn=cnn)
+    al_jazeera = get_article('al-jazeera-english')
+    return render_template('articles.html',cnn=cnn, al_jazeera=al_jazeera)
 
 @main.route('/articles/<int:id>')
 def source_art(id):
     sources = get_source_article(id)
     name = f'{sources.name}'
     return render_template('sourcearticle.html',name=name,sources=sources)
+
+@main.route('/search/<query>')
+def search(query):
+    query_list = query.split(' ')
+    query_format = '+'.join(query_list)
+    searched_query = search_news(query_format)
+    title = f'search results for {query}'
+    return render_template('search.html', sources=searched_query)
