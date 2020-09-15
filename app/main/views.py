@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for
 from . import main
-from ..request import get_sources, get_article
-from ..models import News_source
+from ..request import get_sources, get_article,get_source_article
+from ..models import News_source,News_article
 
 @main.route('/')
 def index():
@@ -16,5 +16,10 @@ def index():
 @main.route('/articles')
 def news_articles():
     cnn = get_article('cnn')
-    argaam_news = get_article('argaam')
-    return render_template('articles.html',cnn=cnn,argaam=argaam_news)
+    return render_template('articles.html',cnn=cnn)
+
+@main.route('/articles/<int:id>')
+def source_art(id):
+    sources = get_source_article(id)
+    name = f'{sources.name}'
+    return render_template('sourcearticle.html',name=name,sources=sources)

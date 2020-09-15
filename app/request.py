@@ -73,6 +73,30 @@ def process_articles(article_list):
             article_results.append(article_object)
         
     return article_results
+
+def get_source_article(id):
+    get_source_article_url = base_url.format(id,api_key)
+    
+    with urllib.request.urlopen(get_source_article_url) as url:
+        source_article_data = url.read()
+        source_article_response = json.loads(source_article_data)
+        
+        source_article_object = None
+        if source_article_response:
+            id = source_article_response.get('id')
+            name = source_article_response.get('name')
+            description = source_article_response.get('description')
+            category = source_article_response.get('category')
+            url = source_article_response.get('url')
+            
+            source_article_object = News_source(id, name, description, category, url)
+            
+    return source_article_object
+            
+        
+        
+        
+    
         
         
     

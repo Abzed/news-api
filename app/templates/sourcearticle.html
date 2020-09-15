@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+ {% import 'macros.html' as macro%}
+
+{% block content %}
+
+<div class="card">
+    <img class="card-img-top" src="" alt="">
+    <div class="card-body">
+        <h4 class="card-title">{{sources.name}}</h4>
+        <p class="card-text">{{ sources.description }}</p>
+    </div>
+</div>
+
+{% endblock %}
