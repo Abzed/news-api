@@ -82,35 +82,24 @@ def get_source_article(id):
         source_article_response = json.loads(source_article_data)
         
         source_article_object = None
+        source_article_results = []
         if source_article_response:
-            id = source_article_response.get('id')
-            name = source_article_response.get('name')
-            description = source_article_response.get('description')
-            category = source_article_response.get('category')
-            url = source_article_response.get('url')
+            for the_article_items in source_article_response.get('articles'):
+                 source_name = the_article_items.get('source')
+                 author = the_article_items.get('author')
+                 title = the_article_items.get('title')
+                 description = the_article_items.get('description')
+                 url_link = the_article_items.get('url')
+                 url_image = the_article_items.get('urlToImage')
+                 date_published = the_article_items.get('publishedAt')
+                 content = the_article_items.get('content')
             
-            source_article_object = News_source(id, name, description, category, url)
+                 source_article_object = News_article(source_name, author, title, description,url_link, url_image,date_published, content)
+                 source_article_results.append(source_article_object)
             
-    return source_article_object
+        return source_article_results
 
-def search_news(query):
-    search_news_url = 'https://newsapi.org/v2/everything?q={}&apiKey={}'.format(query,api_key)
-    
-    with urllib.request.urlopen(search_news_url) as url:
-        search_news_data = url.read()
-        search_news_response = json.loads(search_news_data)
-        
-        search_results = None
-        
-        if search_news_response['articles']:
-            search_news_list = search_news_response['articles']
-            search_results = process_results(search_news_list)
-        else:
-            return []
-        
-    return search_results
-            
-        
+
         
         
     
