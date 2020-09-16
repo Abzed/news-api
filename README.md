@@ -58,6 +58,8 @@ This web app allows a user to see various news sources on the hom page. The news
 
 * Flask Bootstrap 4
 
+* HTML 
+
 *****
 
 ## Contact Information
