@@ -20,7 +20,7 @@ This web app allows a user to see various news sources on the hom page. The news
 
 ### Getting Files
 
-* Click this [link]() to access my github repository.
+* Click this [link](https://github.com/Abzed/news-api) to access my github repository.
 
 * On the top panel you will see a green button with a download icon and the word "CODE" written next to it. Click it to download the project zip file.​
 
@@ -34,7 +34,7 @@ This web app allows a user to see various news sources on the hom page. The news
 
 > $ ./start.sh
 
-* Or you can access the web application directly via this [link]().
+* Or you can access the web application directly via this LIVE [LINK](thee-news-hub.herokuapp.com/).
 
 ******
 
